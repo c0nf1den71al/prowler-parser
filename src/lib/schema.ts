@@ -7,7 +7,11 @@ export const taskSchema = z.object({
   Severity: z.string(),
   CheckTitle: z.string(),
   CheckType: z.array(z.string()),
-  ServiceName: z.string()
+  ServiceName: z.string(),
+  FindingUniqueId: z.string(),
+  Description: z.string(),
+  Risk: z.string(),
+  StatusExtended: z.string(),
 })
 
 export type Task = z.infer<typeof taskSchema>

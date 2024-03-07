@@ -5,10 +5,8 @@ import { ColumnDef } from "@tanstack/react-table"
 import { Badge } from "@/components/ui/badge"
 import { Checkbox } from "@/components/ui/checkbox"
 
-import { labels, priorities, statuses } from "@/lib/data"
 import { Task } from "@/lib/schema"
 import { DataTableColumnHeader } from "@/components/data-table-column-header"
-import { DataTableRowActions } from "@/components/data-table-row-actions"
 
 export const columns: ColumnDef<Task>[] = [
   {
@@ -47,12 +45,25 @@ export const columns: ColumnDef<Task>[] = [
   {
     accessorKey: "CheckTitle",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Title" />
+      <DataTableColumnHeader column={column} title="Check Title" />
     ),
     cell: ({ row }) => {
       return (
         <div className="flex items-center">
           <span>{row.original.CheckTitle}</span>
+        </div>
+      )
+    }
+  },
+  {
+    accessorKey: "CheckResult",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Check Result" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center">
+          <span>{row.original.StatusExtended}</span>
         </div>
       )
     }
@@ -85,6 +96,32 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
+  },
+  {
+    accessorKey: "Description",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Description" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center min-w-[250px]">
+          <span>{row.original.Description}</span>
+        </div>
+      )
+    }
+  },
+  {
+    accessorKey: "Risk",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Risk" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center min-w-[250px]">
+          <span>{row.original.Risk}</span>
+        </div>
+      )
+    }
   },
   {
     accessorKey: "Severity",
@@ -149,5 +186,5 @@ export const columns: ColumnDef<Task>[] = [
     filterFn: (row, id, value) => {
       return value.includes(row.getValue(id))
     },
-  }
+  },
 ]
