@@ -104,7 +104,7 @@ export const columns: ColumnDef<Task>[] = [
           MEDIUM
           </Badge>
           : row.getValue("Severity") === "high" ?
-          <Badge className="bg-red-600">
+          <Badge className="bg-red-500">
           HIGH
           </Badge>
           : row.getValue("Severity") === "critical" ?
