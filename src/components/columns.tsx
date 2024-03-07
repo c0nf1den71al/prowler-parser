@@ -80,6 +80,9 @@ export const columns: ColumnDef<Task>[] = [
         </div>
       )
     },
+    filterFn: (row, id, value) => {
+      return value.includes(row.getValue(id))
+    },
   },
   {
     accessorKey: "Type",

@@ -122,6 +122,11 @@ export function DataTableFacetedFilter<TData, TValue>({
                         {facets.get(option.value)}
                       </span>
                     )}
+                    {!facets?.get(option.value) && (
+                      <span className="ml-auto flex h-4 w-4 items-center justify-center font-mono text-xs">
+                        0
+                      </span>
+                    )}
                   </CommandItem>
                 )
               })}

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { DataTableViewOptions } from "@/components/data-table-view-options"
 
-import { severities, statuses } from "@/lib/data"
+import { services, severities, statuses } from "@/lib/data"
 import { DataTableFacetedFilter } from "@/components/data-table-faceted-filter"
 
 interface DataTableToolbarProps<TData> {
@@ -19,7 +19,7 @@ export function DataTableToolbar<TData>({
 }: DataTableToolbarProps<TData>) {
   const isFiltered = table.getState().columnFilters.length > 0
 
-  return (
+    return (
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
         <Input
@@ -43,6 +43,13 @@ export function DataTableToolbar<TData>({
             column={table.getColumn("Severity")}
             title="Severity"
             options={severities}
+          />
+        )}
+        {table.getColumn("ServiceName") && (
+          <DataTableFacetedFilter
+            column={table.getColumn("ServiceName")}
+            title="Service Name"
+            options={services}
           />
         )}
         {isFiltered && (
