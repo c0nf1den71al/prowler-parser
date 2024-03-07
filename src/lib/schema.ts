@@ -12,6 +12,9 @@ export const taskSchema = z.object({
   Description: z.string(),
   Risk: z.string(),
   StatusExtended: z.string(),
+  Remediation: z.object({Recommendation: z.object({Text: z.string()})}),
+  Region: z.string(),
+  ResourceId: z.string()
 })
 
 export type Task = z.infer<typeof taskSchema>

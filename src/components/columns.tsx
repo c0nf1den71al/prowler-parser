@@ -98,6 +98,32 @@ export const columns: ColumnDef<Task>[] = [
     },
   },
   {
+    accessorKey: "ResourceId",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Resource Id" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center">
+          <span>{row.original.ResourceId}</span>
+        </div>
+      )
+    },
+  },
+  {
+    accessorKey: "Region",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Region" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center">
+          <span>{row.original.Region}</span>
+        </div>
+      )
+    },
+  },
+  {
     accessorKey: "Description",
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Description" />
@@ -121,7 +147,20 @@ export const columns: ColumnDef<Task>[] = [
           <span>{row.original.Risk}</span>
         </div>
       )
-    }
+    },
+  },
+  {
+    accessorKey: "Remediation",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Remediation" />
+    ),
+    cell: ({ row }) => {
+      return (
+        <div className="flex items-center min-w-[250px]">
+          <span>{row.original.Remediation.Recommendation.Text}</span>
+        </div>
+      )
+    },
   },
   {
     accessorKey: "Severity",
