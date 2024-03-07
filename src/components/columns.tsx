@@ -40,7 +40,7 @@ export const columns: ColumnDef<Task>[] = [
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="ID" />
     ),
-    cell: ({ row }) => <div>CHECK-{String(row.index).padStart(4, '0')}</div>,
+    cell: ({ row }) => <div>CHECK-{String(row.index).padStart(6, '0')}</div>,
     enableSorting: false,
     enableHiding: false,
   },
